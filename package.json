@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "build": "electron-packager . --platform win32 --asar --icon ./src/assets/icon --out ./dist --overwrite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Khaled Mohamed <Khal3d.Mohamed@gmail.com>",
@@ -20,6 +21,7 @@
     "node-fetch": "^1.7.3"
   },
   "devDependencies": {
+    "electron-packager": "^10.1.0",
     "electron-reload": "^1.2.2"
   }
 }
