@@ -67,9 +67,9 @@ class Trie {
             }
         }
 
-        node.type = undefined;
-        node.definition = undefined;
-        node.end = undefined;
+        node.type = null;
+        node.definition = null;
+        node.end = false;
         this.size--;
     }
 
@@ -84,8 +84,8 @@ class Trie {
             });
         }
 
-        for(let i = 0; i < 26; ++i) {
-            const child = String.fromCharCode(97 + i);
+        for(let i = -1; i < 26; ++i) {
+            const child = (i != -1)? String.fromCharCode(97 + i) : ' ';
             if (head.children[child]) {
                 this.getAll(head.children[child], path + child, tree);
             }
