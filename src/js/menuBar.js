@@ -4,24 +4,24 @@ const { remote, BrowserWindow } = require('electron');
 const menuTemplate = [
 
     {
-        label:'File',
+        label: 'File',
         submenu: [
             {
                 label: 'Add new word',
-                click(){
+                click() {
                     BrowserWindow.getFocusedWindow().webContents.send('addWord');
                 },
                 accelerator: 'CmdOrCtrl+N'
             },
-            process.platform=='win32'?
-            {
-                label: 'Quit dotDictionary',
-            role: 'quit'
-                
-            }:
-            {
-                visible: false
-            }
+            process.platform == 'win32' ?
+                {
+                    label: 'Quit dotDictionary',
+                    role: 'quit'
+
+                } :
+                {
+                    visible: false
+                }
         ]
     },
     {
@@ -43,7 +43,6 @@ const menuTemplate = [
                 }
             },
             {
-                label: 'Reload',
                 role: 'reload',
 
             },
@@ -55,28 +54,24 @@ const menuTemplate = [
                 }
             },
             {
-                label: 'Copy',
                 role: 'copy',
-                accelerator:  'CmdOrCtrl+C',
             },
             {
-                label: 'Paste',
                 role: 'paste',
-                accelerator: 'CmdOrCtrl+V',
             },
 
         ]
     },
     {
         label: 'Window',
-submenu:[
-       {
-        role: 'minimize'
-      },
-      {
-         role: 'togglefullscreen'
-      }
-]
+        submenu: [
+            {
+                role: 'minimize'
+            },
+            {
+                role: 'togglefullscreen'
+            }
+        ]
     }
 
 
