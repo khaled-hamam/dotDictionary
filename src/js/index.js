@@ -65,7 +65,6 @@ function textToSpeech(word,child){
     }
     window.speechSynthesis.speak(msg);
 }
-ip
 
 function openAddModal() {
     canceledit();
