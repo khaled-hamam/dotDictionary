@@ -76,9 +76,9 @@ function openAddModal() {
 }
 
 function addWord() {
-    const word =  document.getElementById('nameinput').value;
+    const word =  (document.getElementById('nameinput').value).trim();
     const type = document.getElementById('typeinput').value;
-    const definition = document.getElementById('difinput').value;
+    const definition = (document.getElementById('difinput').value).trim();
     let err = "";
     if (!word.length) {
         err = "You Should Enter A Word.";
