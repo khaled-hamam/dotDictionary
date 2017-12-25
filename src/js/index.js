@@ -152,7 +152,7 @@ function deleteWord(word) {
 function editWord() {
     const word =  document.getElementById('wordlbl').textContent;    
     const newType = document.getElementById('editTypeInput').value;
-    const newDefinition = document.getElementById('editDifInput').value;
+    const newDefinition = (document.getElementById('editDifInput').value).trim();
     let err = "";
     if (!newType.length) {
         err = "You Should Enter A Type.\n";
