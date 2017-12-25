@@ -1,4 +1,4 @@
-const {remote,ipcRenderer } = require('electron');
+const {remote, ipcRenderer} = require('electron');
 const translate = require('google-translate-api');
 const {dictionary, history} = remote.require('./main.js');
 const DictionaryAPI = remote.require('./src/js/DictionaryAPI.js');
@@ -7,54 +7,48 @@ let showAll = false;
 let speech = false;
 displayDefaultContent();
 
-document.getElementById("searchField").addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode === 13) {
-        submitSearch();
-    }
-});
-
 function openTranslateModal(word){
     canceladd();
     canceledit();
     hideTranslationLoader();
-        document.getElementById('translatedWordlbl').style.textAlign= "left";  
+    document.getElementById('translatedWordlbl').style.textAlign = "left";  
     
     const modal = document.getElementById("translateModal");
     document.getElementById('translatedWordlbl').innerHTML = word;
     modal.style.minHeight = "240pt";
     modal.style.minWidth = "350pt";
     modal.style.display = "block";
-   const oldLangBox = document.getElementById("translateInput");
+    const oldLangBox = document.getElementById("translateInput");
     const newLangBox = oldLangBox.cloneNode(true);
     oldLangBox.parentNode.replaceChild(newLangBox, oldLangBox);
     newLangBox.addEventListener('change', function name(e) {       
         translateWord(word);
     });
-    
 }
-ipcRenderer.on('addWord',()=>{
-openAddModal();
+
+ipcRenderer.on('addWord', () => {
+    openAddModal();
 });
 
-function translateWord(word){
+function translateWord(word) {
     showTranslationLoading();
     const language = document.getElementById('translateInput').value;
     translate(word, {to: language}).then(res => {
         document.getElementById('translatedWordlbl').innerText = res.text;
+        if(language==="ar"){
+            document.getElementById('translatedWordlbl').style.textAlign= "right";
+        }
+        else {
+            document.getElementById('translatedWordlbl').style.textAlign= "left";  
+        }
         hideTranslationLoader();
-    if(language==="ar"){
-        document.getElementById('translatedWordlbl').style.textAlign= "right";
-    }
-    else {
-        document.getElementById('translatedWordlbl').style.textAlign= "left";  
-    }
-}).catch(err => {
-    console.error(err);
-});
+    }).catch(err => {
+        console.log(err);
+        alert("An Error Occured");
+    });
 }
 
-function textToSpeech(word,child){
+function textToSpeech(word, child) {
     if (speech) return;
     speech = true;
     child.style.color = "red";
@@ -196,9 +190,8 @@ function canceladd() {
 }
 function cancelTranslate(){
     document.getElementById("translateModal").style.display = "none";
-
-    
 }
+
 function submitSearch() {
     showAll = false;    
     const query = document.getElementById('searchField').value;
@@ -237,17 +230,17 @@ function showAllFunc() {
     showAll = true;
     
     document.getElementById('searchField').value = null;
-    if(dictionary.length()!=0){
+    if (dictionary.length() != 0) {
         renderElements(dictionary.getAll());
-        }
-        else{
-            let main = document.getElementById('division');
-            main.innerHTML = `
-                <div style="display: flex; align-items: center; justify-content: center; margin-top: 100pt">
-                    <p>There are no Words in the Dictionary</p>
-                </div>
-            `;
-        }}
+    } else {
+        let main = document.getElementById('division');
+        main.innerHTML = `
+            <div style="display: flex; align-items: center; justify-content: center; margin-top: 100pt">
+                <p>There are no Words in the Dictionary</p>
+            </div>
+        `;
+    }
+}
 
 function renderElements(result) {
     document.getElementById('division').innerHTML = null;
