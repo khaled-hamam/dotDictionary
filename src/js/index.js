@@ -70,9 +70,9 @@ function openAddModal() {
 }
 
 function addWord() {
-    const word =  document.getElementById('nameinput').value;
+    const word =  (document.getElementById('nameinput').value).trim();
     const type = document.getElementById('typeinput').value;
-    const definition = document.getElementById('difinput').value;
+    const definition = (document.getElementById('difinput').value).trim();
     let err = "";
     if (!word.length) {
         err = "You Should Enter A Word.";
@@ -146,7 +146,7 @@ function deleteWord(word) {
 function editWord() {
     const word =  document.getElementById('wordlbl').textContent;    
     const newType = document.getElementById('editTypeInput').value;
-    const newDefinition = document.getElementById('editDifInput').value;
+    const newDefinition = (document.getElementById('editDifInput').value).trim();
     let err = "";
     if (!newType.length) {
         err = "You Should Enter A Type.\n";
