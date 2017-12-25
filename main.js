@@ -39,8 +39,18 @@ app.on('ready', () => {
         mainWindow.show();
     });
     const mainMenu = Menu.buildFromTemplate(menuTemplate);
+    if (process.platform === 'darwin') {
+        menuTemplate.unshift({
+            label: app.getName(),
+            submenu: [
+                {
+                    label: 'Quit dotDictionary',
+                    role: 'quit'
+                }
+            ]
+        })
+    }
     Menu.setApplicationMenu(mainMenu);
-
 });
 
 app.on('before-quit', () => {

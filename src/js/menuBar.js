@@ -2,17 +2,7 @@ let main = require('../../main.js')
 const { remote, BrowserWindow } = require('electron');
 
 const menuTemplate = [
-    
-    process.platform == 'darwin' ? {
-        label: 'dotDictionary',
-        submenu: [
-            {
-                label:'Quit dotDictionary',
-                role: 'quit'
-            }
-        ]
-    } : 
-    {},
+
     {
         label:'File',
         submenu: [
@@ -20,7 +10,6 @@ const menuTemplate = [
                 label: 'Add new word',
                 click(){
                     BrowserWindow.getFocusedWindow().webContents.send('addWord');
-
                 },
                 accelerator: 'CmdOrCtrl+N'
             },
@@ -30,7 +19,9 @@ const menuTemplate = [
             role: 'quit'
                 
             }:
-            {}
+            {
+                visible: false
+            }
         ]
     },
     {
