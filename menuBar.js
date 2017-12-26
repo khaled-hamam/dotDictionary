@@ -1,5 +1,5 @@
 let main = require('./main.js');
-const { remote, BrowserWindow } = require('electron');
+const { remote, BrowserWindow, shell } = require('electron');
 
 const menuTemplate = [
     {
@@ -60,13 +60,24 @@ const menuTemplate = [
         ]
     },
     {
-        label: 'Window',
+        role: 'window',
         submenu: [
             {
                 role: 'minimize'
             },
             {
                 role: 'togglefullscreen'
+            }
+        ]
+    },
+    {
+        role: 'help',
+        submenu: [
+            {
+                label: 'Learn More',
+                click() {
+                    shell.openExternal('https://github.com/khaled-hamam/dotDictionary');
+                }
             }
         ]
     }

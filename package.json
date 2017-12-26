@@ -8,7 +8,7 @@
     "build": "electron-packager . --asar --icon ./src/assets/icon --out ./dist --overwrite",
     "build-darwin": "electron-packager . --platform darwin --asar --icon ./src/assets/icon.icns --out ./dist --overwrite",
     "build-linux": "electron-packager . --platform linux --asar --icon ./src/assets/icon.png --out ./dist --overwrite",
-    "build-win32": "electron-packager . --platform darwin --asar --icon ./src/assets/icon.ico --out ./dist --overwrite",
+    "build-win32": "electron-packager . --platform win32 --asar --icon ./src/assets/icon.ico --out ./dist --overwrite",
     "build-all": "electron-packager . --all --asar --icon ./src/assets/icon --out ./dist --overwrite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
