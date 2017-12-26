@@ -5,7 +5,11 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . --platform win32 --asar --icon ./src/assets/icon --out ./dist --overwrite",
+    "build": "electron-packager . --asar --icon ./src/assets/icon --out ./dist --overwrite",
+    "build-darwin": "electron-packager . --platform darwin --asar --icon ./src/assets/icon.icns --out ./dist --overwrite",
+    "build-linux": "electron-packager . --platform linux --asar --icon ./src/assets/icon.png --out ./dist --overwrite",
+    "build-win32": "electron-packager . --platform darwin --asar --icon ./src/assets/icon.ico --out ./dist --overwrite",
+    "build-all": "electron-packager . --all --asar --icon ./src/assets/icon --out ./dist --overwrite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Khaled Mohamed <Khal3d.Mohamed@gmail.com>",
@@ -21,7 +25,6 @@
     "node-fetch": "^1.7.3"
   },
   "devDependencies": {
-    "electron-packager": "^10.1.0",
-    "electron-reload": "^1.2.2"
+    "electron-packager": "^10.1.0"
   }
 }
