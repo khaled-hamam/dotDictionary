@@ -265,6 +265,7 @@ function translateWord(word) {
             hideTranslationLoader();
         })
         .catch(err => {
+            hideTranslationLoader();
             console.log(err);
             alert('An Error Occured');
         });
