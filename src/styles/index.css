@@ -1,23 +1,23 @@
-
 body {
-    display: flex;    
-    width:100%;
+    display: flex;
+    width: 100%;
     height: 100%;
     flex-direction: column;
     align-items: center;
     background-color: var(--backgroundColor);
-    margin: 0;  
-    font-family: sans-serif; 
+    margin: 0;
+    cursor: default;
+    font-family: sans-serif;
     -webkit-user-select: none;
     --primaryWhite: white;
     --mainColor: #2dc4f1;
     --backgroundColor: #f3f3f3;
-    --borderColor: #E2E2E2;
-    --secondayBtnColor: #CCC;
+    --borderColor: #e2e2e2;
+    --secondayBtnColor: #444;
 }
 
 [onclick] {
-    cursor : pointer;
+    cursor: pointer;
 }
 
 [onclick]:hover {
@@ -33,27 +33,27 @@ body {
     position: fixed;
     z-index: 2;
     display: flex;
-    flex-direction:row;     
-    align-items: center; 
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     background: var(--mainColor);
     margin-bottom: 10pt;
 }
 
 .logo {
-   float: left;
-   margin-left: 10pt;
+    float: left;
+    margin-left: 10pt;
 }
 
 .searchBar {
-    text-align:center;
+    text-align: center;
     float: left;
-    color:var(--primaryWhite);
+    color: var(--primaryWhite);
 }
 
 .searchBar i {
     margin-left: -25pt;
-    color: var(--mainColor)
+    color: var(--mainColor);
 }
 
 .searchBar a {
@@ -69,13 +69,12 @@ body {
 }
 
 .showAll {
-  float: right;
-  margin-right: 20pt;
-  margin-left: 5pt; 
-  color:var(--primaryWhite);
-  justify-content: center;  
+    float: right;
+    margin-right: 20pt;
+    margin-left: 5pt;
+    color: var(--primaryWhite);
+    justify-content: center;
 }
-
 
 /* DISPLAY WORDS CSS */
 
@@ -90,18 +89,25 @@ body {
 
 .appendedDiv {
     background: rgb(255, 255, 255);
-    width: 500pt;  
-    box-shadow: 2pt 2pt #D6D6D6;
+    width: 500pt;
+    /* box-shadow: 2pt 2pt #d6d6d6; */
+    box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.2);
     border: 0px solid var(--backgroundColor);
     border-radius: 10px;
     border-bottom-color: var(--borderColor);
     position: relative;
     padding: 10pt;
     margin: 10pt;
+    transition: all 400ms ease-out;
 }
-.iconsDiv{
+
+.appendedDiv:hover {
+    box-shadow: 5px 13px 21px -5px rgba(0, 0, 0, 0.2);
+}
+
+.iconsDiv {
     /* justify-content: space-between; */
-    align-content:flex-start;
+    align-content: flex-start;
     float: right;
     margin-top: 5pt;
     top: 0pt;
@@ -109,26 +115,23 @@ body {
     position: absolute;
 }
 
-
-.appendedDiv i{
+.appendedDiv i {
     margin-top: 2pt;
-    height:20pt;
+    height: 20pt;
     width: 20pt;
-    color:var(--secondayBtnColor);
+    color: var(--secondayBtnColor);
     vertical-align: middle;
 }
 
-
 .wordTypeDiv {
-    display:block;
-    align-content:flex-start;
+    display: block;
+    align-content: flex-start;
     display: inline-block;
     height: 10%;
     margin-left: 10pt;
     margin-right: 0pt;
     margin-bottom: 0pt;
     margin-top: 0pt;
-    
 }
 
 .word {
@@ -136,7 +139,7 @@ body {
     color: var(--mainColor);
     display: inline-block;
     font-size: 35pt;
-    margin: 0; 
+    margin: 0;
     padding: 0;
     align-self: flex-start;
     word-wrap: break-word;
@@ -152,7 +155,7 @@ body {
 .definitionClass {
     word-wrap: break-word;
     font-size: 12pt;
-    color: #3F3F3F;   
+    color: #3f3f3f;
     margin: 0;
     font-weight: normal;
 }
@@ -162,13 +165,12 @@ body {
     align-items: center;
     margin-right: 20pt;
     margin-top: 0pt;
-    margin-left: 20pt;    
+    margin-left: 20pt;
     margin-bottom: 10pt;
 }
 
 .plusbutton {
     display: flex;
-
     height: 40pt;
     width: 40pt;
     border-radius: 50%;
@@ -181,6 +183,7 @@ body {
     border-radius: 50pt;
     outline: none;
     align-items: center;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
 }
 .plusbutton i {
     color: var(--primaryWhite);
@@ -188,14 +191,14 @@ body {
     font-size: 40pt;
 }
 
- /* EDIT MODAL CSS */
- .typeInput {
+/* EDIT MODAL CSS */
+.typeInput {
     width: 30%;
     border-width: 1pt;
     border-radius: 4pt;
     border: solid;
     outline: none;
-    border-color:var(--primaryWhite);
+    border-color: var(--primaryWhite);
     margin: 10pt;
 }
 
@@ -206,7 +209,7 @@ body {
     overflow: hidden;
     align-items: center;
     justify-content: center;
-    top:0;
+    top: 0;
     background: var(--primaryWhite);
     position: fixed;
     -webkit-animation-name: animatetop;
@@ -229,7 +232,7 @@ body {
     border-radius: 4pt;
     height: 25pt;
     border-color: var(--borderColor);
-    outline: none;   
+    outline: none;
 }
 
 .addDiv {
@@ -238,7 +241,7 @@ body {
     display: flex;
     align-items: center;
     display: flex;
-    top:0;
+    top: 0;
     background: var(--primaryWhite);
     position: fixed;
     -webkit-animation-name: animatetop;
@@ -249,7 +252,7 @@ body {
     text-align: center;
 }
 
-.addBtn {      
+.addBtn {
     text-decoration: none;
     background-color: var(--mainColor);
     color: var(--primaryWhite);
@@ -258,9 +261,9 @@ body {
     border-radius: 4pt;
     border-color: var(--mainColor);
     outline: none;
-    height: 30pt;    
+    height: 30pt;
     width: 60pt;
-    text-align: center;    
+    text-align: center;
 }
 
 .deftxt {
@@ -271,12 +274,12 @@ body {
     border-radius: 4pt;
     border-color: var(--borderColor);
     margin: 10pt;
-    outline: none;  
-    resize: none; 
+    outline: none;
+    resize: none;
 }
 
 .cancelBtn {
-    align-self: center;  
+    align-self: center;
     text-decoration: none;
     color: var(--primaryWhite);
     background-color: var(--secondayBtnColor);
@@ -287,7 +290,7 @@ body {
     border-color: var(--borderColor);
     outline: none;
     width: 60pt;
-    text-align: center;    
+    text-align: center;
 }
 
 .wordInputs {
@@ -299,18 +302,18 @@ body {
     justify-content: flex-end;
 }
 
-@-webkit-keyframes animatetop{
+@-webkit-keyframes animatetop {
     from {
         top: -300pt;
         opacity: 0;
     }
     to {
-        top:0;
+        top: 0;
         opacity: 1;
     }
 }
 /* TRANSLATE WORD MODAL CSS*/
-.translateM{
+.translateM {
     z-index: 3;
     overflow: hidden;
     position: fixed;
@@ -321,21 +324,19 @@ body {
     -webkit-animation-duration: 0.4s;
 }
 
-.selectLanguageDiv{
+.selectLanguageDiv {
     margin: 10pt;
 }
-.wordDiv{
-        margin: 30pt;
-        margin-top: 20pt;
-        
+.wordDiv {
+    margin: 30pt;
+    margin-top: 20pt;
 }
 
 .translatedwordlbl {
     font-size: 25pt;
     word-wrap: break-word;
-    
 }
-.closediv{
+.closediv {
     justify-content: center;
     display: flex;
     position: absolute;
@@ -343,58 +344,57 @@ body {
     right: 20pt;
 }
 
-.closeBtn{
-    
+.closeBtn {
     text-decoration: none;
-    background-color: var(--mainColor);
+    background-color: var(--secondayBtnColor);
     color: var(--primaryWhite);
     border: none;
     border-width: 1pt;
     border-radius: 4pt;
     border-color: var(--mainColor);
     outline: none;
-    height: 30pt;    
+    height: 30pt;
     width: 60pt;
-    text-align: center; 
-  
- 
+    text-align: center;
 }
-   /* LOADING INDICATOR CSS */
-#loading{
-
+/* LOADING INDICATOR CSS */
+#loading {
     width: 50px;
     height: 50px;
-    border: 5px solid  var(--secondayBtnColor);
+    border: 5px solid var(--secondayBtnColor);
     border-top-color: var(--mainColor);
     border-radius: 100%;
-        /* To center */
+    /* To center */
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     margin: auto;
-        /* rotate */
+    /* rotate */
     animation: round 2s linear infinite;
 }
-#loadingTranslation{
-    
-        width: 50px;
-        height: 50px;
-        border: 5px solid  var(--secondayBtnColor);
-        border-top-color: var(--mainColor);
-        border-radius: 100%;
-            /* To center */
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-            /* rotate */
-        animation: round 2s linear infinite;
+#loadingTranslation {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--secondayBtnColor);
+    border-top-color: var(--mainColor);
+    border-radius: 100%;
+    /* To center */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    /* rotate */
+    animation: round 2s linear infinite;
+}
+@keyframes round {
+    from {
+        transform: rotate(0deg);
     }
-@keyframes round{
-    from{ transform: rotate(0deg)}
-    to{transform: rotate(360deg)}
-}   
+    to {
+        transform: rotate(360deg);
+    }
+}

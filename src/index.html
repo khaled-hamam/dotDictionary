@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./styles/main.css" rel="stylesheet">
+    <link href="./styles/index.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>dotDictionary</title>
 </head>
@@ -48,14 +48,14 @@
 
     <div onclick="openAddModal()" class="plusbutton">
         <!-- <i class="fa fa-plus" aria-hidden="true"></i> -->
-        <i> +</i>
+        <i>+</i>
     </div>
     <!-- .....................................ADD WORD MODAL HTML......................................... -->
     <div class="addDiv" id="add" style="display: none">
         <div class="wordInputs">
             <input class="inputForm" placeholder="Enter the word" id="nameinput" />
             <select class="inputForm" id="typeinput">
-                <option value=""  disabled selected="selected">Choose a type</option>                    
+                <option value="" disabled selected="selected">Choose a type</option>
                 <option value="noun">Noun</option>
                 <option value="verb">Verb</option>
                 <option value="pronoun">Pronoun</option>
@@ -78,7 +78,7 @@
         <label id="wordlbl" class="wordlbl" type="text"></label>
         <div class="labelDiv">
             <select class="inputForm" id="editTypeInput">
-                <option value=""  disabled selected="selected">Choose a type</option>
+                <option value="" disabled selected="selected">Choose a type</option>
                 <option value="noun">Noun</option>
                 <option value="verb">Verb</option>
                 <option value="pronoun">Pronoun</option>
@@ -98,14 +98,14 @@
     <!-- .....................................TRANSLATE WORD MODAL HTML......................................... -->
     <div class="translateM" id="translateModal" style="display: none">
         <div class="selectLanguageDiv">
-            <select class="inputForm" id="translateInput"  >
-                    <option value=""  disabled selected="selected">Choose a language</option>
-                    <option value="en">English</option>
-                    <option value="ar">Arabic</option>
-                    <option value="fr">French</option>
-                    <option value="de">German</option>
-                    <option value="es">Spanish</option>
-        </select>
+            <select class="inputForm" id="translateInput">
+                <option value="" disabled selected="selected">Choose a language</option>
+                <option value="en">English</option>
+                <option value="ar">Arabic</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="es">Spanish</option>
+            </select>
         </div>
         <div class="wordDiv">
             <p class="translatedwordlbl" id="translatedWordlbl"></p>

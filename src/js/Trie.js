@@ -73,7 +73,7 @@ class Trie {
         this.size--;
     }
 
-    getAll(head = this.root, path = "", tree = []) {
+    getAll(head = this.root, path = '', tree = []) {
         if (!head) return;
 
         if (head.end) {
@@ -84,8 +84,8 @@ class Trie {
             });
         }
 
-        for(let i = -1; i < 26; ++i) {
-            const child = (i != -1)? String.fromCharCode(97 + i) : ' ';
+        for (let i = -1; i < 26; ++i) {
+            const child = i != -1 ? String.fromCharCode(97 + i) : ' ';
             if (head.children[child]) {
                 this.getAll(head.children[child], path + child, tree);
             }
@@ -98,7 +98,7 @@ class Trie {
         prefix = prefix.toLowerCase();
         let node = this.root;
 
-        for(let i = 0; i < prefix.length; ++i) {
+        for (let i = 0; i < prefix.length; ++i) {
             if (!node.children[prefix[i]]) {
                 return [];
             }
@@ -123,10 +123,10 @@ class Trie {
             return null;
         }
 
-        return ({
+        return {
             type: node.type,
             definition: node.definition
-        });
+        };
     }
 
     contains(word) {
@@ -145,7 +145,6 @@ class Trie {
     length() {
         return this.size;
     }
- 
-};
+}
 
 module.exports = Trie;

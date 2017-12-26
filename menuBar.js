@@ -1,8 +1,7 @@
-let main = require('../../main.js')
+let main = require('./main.js');
 const { remote, BrowserWindow } = require('electron');
 
 const menuTemplate = [
-
     {
         label: 'File',
         submenu: [
@@ -13,19 +12,17 @@ const menuTemplate = [
                 },
                 accelerator: 'CmdOrCtrl+N'
             },
-            process.platform == 'win32' ?
-                {
-                    label: 'Quit dotDictionary',
-                    role: 'quit'
-
-                } :
-                {
-                    visible: false
-                }
+            process.platform == 'win32'
+                ? {
+                      label: 'Quit dotDictionary',
+                      role: 'quit'
+                  }
+                : {
+                      visible: false
+                  }
         ]
     },
     {
-
         label: 'Edit',
         submenu: [
             {
@@ -33,6 +30,7 @@ const menuTemplate = [
                 accelerator: 'CmdOrCtrl+Z',
                 click() {
                     main.history.undo();
+                    BrowserWindow.getFocusedWindow().webContents.send('reload');
                 }
             },
             {
@@ -40,26 +38,25 @@ const menuTemplate = [
                 accelerator: process.platform === 'darwin' ? 'Command+Shift+Z' : 'Ctrl+Y',
                 click() {
                     main.history.redo();
+                    BrowserWindow.getFocusedWindow().webContents.send('reload');
                 }
             },
             {
-                role: 'reload',
-
+                role: 'reload'
             },
             {
                 label: 'Toggle Developer Tools',
                 accelerator: 'CmdOrCtrl+Shift+I',
                 click(item, focusedWindow) {
-                    if (focusedWindow) focusedWindow.webContents.toggleDevTools()
+                    if (focusedWindow) focusedWindow.webContents.toggleDevTools();
                 }
             },
             {
-                role: 'copy',
+                role: 'copy'
             },
             {
-                role: 'paste',
-            },
-
+                role: 'paste'
+            }
         ]
     },
     {
@@ -73,10 +70,6 @@ const menuTemplate = [
             }
         ]
     }
+];
 
-
-
-
-
-]
 module.exports = menuTemplate;

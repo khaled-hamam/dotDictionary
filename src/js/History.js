@@ -5,7 +5,7 @@ class HistoryNode {
         this.actionParams = actionParams;
         this.undoParams = undoParams;
     }
-};
+}
 
 class History {
     constructor() {
@@ -14,8 +14,11 @@ class History {
     }
 
     addAction(actionCallback, undoCallback, actionParams, undoParams) {
-        this.historyArr
-            .splice(this.head + 1, 0, new HistoryNode(actionCallback, undoCallback, actionParams, undoParams));
+        this.historyArr.splice(
+            this.head + 1,
+            0,
+            new HistoryNode(actionCallback, undoCallback, actionParams, undoParams)
+        );
         this.historyArr = this.historyArr.slice(0, this.head + 2);
         this.head++;
     }
@@ -28,11 +31,11 @@ class History {
     }
 
     redo() {
-        if(this.head == this.historyArr.length - 1) return;
+        if (this.head == this.historyArr.length - 1) return;
         let params = this.historyArr[this.head + 1].actionParams;
         this.historyArr[this.head + 1].actionCallback(...params);
         this.head++;
     }
-};
+}
 
 module.exports = History;
