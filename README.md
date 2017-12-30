@@ -15,10 +15,10 @@ You should install **npm** before using the app, unless you're using the release
 Dowload the repository files or clone it, then run:
 
 ```bash
-# Install Dependecies
+# Install Dependencies
 npm install
 
-# Run the app
+# Start the app
 npm start
 
 # Build for all platforms (Check package.json for other build commands)
